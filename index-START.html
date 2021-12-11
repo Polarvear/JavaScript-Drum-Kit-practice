@@ -58,14 +58,16 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
-//querySeletorAll로 하게 되면 배열형식으로 받아온다.
-const button = document.querySelector('.keys')
-      button.addEventListener('click',(e)=>{
-      const target = e.target
-      const sound = target.getAttribute('data-key')
-        },false)
-
-
+const Property = [{name : 'Lee',  age:40, gender:'male'},
+                  {name : 'Park', age:50, gender:'female'}
+]
+const keys = document.querySelectorAll('.key')// 근데 이렇게 하면 배열로 싸여있는 게 아니고 NodeList라고 나온다.
+//NodeList란 무엇인가?
+console.log('first :', keys[0])// 이런식으로 바로 접근가능
+const keys1 = Array.from(document.querySelectorAll('.key'))// 이렇까지 해야지 배열로 가능
+console.log('second :', keys1[0])
+console.log('Arrayfrom미적용: ',Property[0]) // 이렇게 하면 Object로 반환
+console.log('Arrayfrom적용 :', Array.from(Property))
 
 </script>
 
